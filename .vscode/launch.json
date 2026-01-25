@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:IosAppIconGen}",
+            "name": "Debug IosAppIconGen",
+            "target": "IosAppIconGen",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug IosAppIconGen"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:IosAppIconGen}",
+            "name": "Release IosAppIconGen",
+            "target": "IosAppIconGen",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release IosAppIconGen"
+        }
+    ]
+}
