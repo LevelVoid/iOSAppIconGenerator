@@ -27,7 +27,7 @@ struct FileIconService: FileIconServiceProtocol {
     func archiveTemporaryDirectoryToPath(_ path: String) async throws{
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             do{
-                let result = try safeShell("""
+                let _ = try safeShell("""
                     rm -rf \(path)/AppIcons.zip
                     pwd=`pwd`
                     cd \(fileManager.temporaryDirectory.path)
@@ -36,6 +36,7 @@ struct FileIconService: FileIconServiceProtocol {
                     cd $pwd
                     \(!isExportPathCurrentDirectory(path) ? "mv AppIcons.zip \(path)" : "") 
                 """ )
+                continuation.resume()
             } catch{
                 print(error.localizedDescription)
                 continuation.resume(throwing: error)
